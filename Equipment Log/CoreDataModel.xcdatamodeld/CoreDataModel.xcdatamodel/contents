@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="EquipmentEntity" representedClassName="EquipmentEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="belts" optional="YES" attributeType="String"/>
+        <attribute name="cabWindows" optional="YES" attributeType="String"/>
+        <attribute name="coolerCores" optional="YES" attributeType="String"/>
+        <attribute name="def" optional="YES" attributeType="String"/>
+        <attribute name="defroster" optional="YES" attributeType="String"/>
+        <attribute name="diagnostic" optional="YES" attributeType="String"/>
+        <attribute name="engineCoolant" optional="YES" attributeType="String"/>
+        <attribute name="engineOils" optional="YES" attributeType="String"/>
+        <attribute name="equipmentName" optional="YES" attributeType="String"/>
+        <attribute name="fireExtinguisher" optional="YES" attributeType="String"/>
+        <attribute name="frame" optional="YES" attributeType="String"/>
+        <attribute name="fuel" optional="YES" attributeType="String"/>
+        <attribute name="gauges" optional="YES" attributeType="String"/>
+        <attribute name="grabbars" optional="YES" attributeType="String"/>
+        <attribute name="harnessses" optional="YES" attributeType="String"/>
+        <attribute name="horn" optional="YES" attributeType="String"/>
+        <attribute name="hydraulicOils" optional="YES" attributeType="String"/>
+        <attribute name="inspectionDate" optional="YES" attributeType="String"/>
+        <attribute name="mirrors" optional="YES" attributeType="String"/>
+        <attribute name="operatorManaul" optional="YES" attributeType="String"/>
+        <attribute name="overall" optional="YES" attributeType="String"/>
+        <attribute name="overallCleanliness" optional="YES" attributeType="String"/>
+        <attribute name="parkBrakes" optional="YES" attributeType="String"/>
+        <attribute name="seats" optional="YES" attributeType="String"/>
+        <attribute name="selectedDate" optional="YES" attributeType="String"/>
+        <attribute name="selectedProject" optional="YES" attributeType="String"/>
+        <attribute name="steering" optional="YES" attributeType="String"/>
+        <attribute name="tires" optional="YES" attributeType="String"/>
+        <attribute name="transmissionOil" optional="YES" attributeType="String"/>
+        <attribute name="travelAlarms" optional="YES" attributeType="String"/>
+        <attribute name="undertheMachine" optional="YES" attributeType="String"/>
+        <attribute name="windshield" optional="YES" attributeType="String"/>
+        <relationship name="equipmenttoProject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectEntity" inverseName="projecttoEquipment" inverseEntity="ProjectEntity"/>
+    </entity>
+    <entity name="ProjectEntity" representedClassName="ProjectEntity" syncable="YES">
+        <attribute name="client" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="jobsiteDescription" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="profileImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="projectDate" optional="YES" attributeType="String"/>
+        <attribute name="projectManager" optional="YES" attributeType="String"/>
+        <attribute name="projectName" optional="YES" attributeType="String"/>
+        <attribute name="projectNumber" optional="YES" attributeType="String"/>
+        <attribute name="superintendent" optional="YES" attributeType="String"/>
+        <relationship name="projecttoEquipment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquipmentEntity" inverseName="equipmenttoProject" inverseEntity="EquipmentEntity"/>
+    </entity>
+</model>
