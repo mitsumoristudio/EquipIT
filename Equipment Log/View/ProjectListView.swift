@@ -69,17 +69,6 @@ struct ProjectListView : View {
                                 .font(.title2)
                         })
                     })
-                    //                    ToolbarItem(placement: .navigationBarTrailing, content: {
-                    //                        NavigationLink(destination: {
-                    //                            EquipmentListView()
-                    //                        }, label: {
-                    //                            Image(systemName: "doc.circle.fill")
-                    //                                .foregroundColor(Color.white)
-                    //                                .background(Color.black, in: Circle())
-                    //                            //                            .background(Color.black, in: Circle())
-                    //                                .font(.title2)
-                    //                        })
-                    //                    })
                     
                 }
                 .background(backgroundGradientlight)

@@ -16,6 +16,9 @@ struct HeavyEquipListView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \EquipmentEntity.equipmentName, ascending: true)]) private var equipments: FetchedResults<EquipmentEntity>
     
+    @State var showShareLink: Bool = false
+    
+    
     func deleteProjectEntity(at offset: IndexSet) {
         for index in offset {
             let projectDelete = projectsSelected[index]
@@ -49,16 +52,17 @@ struct HeavyEquipListView: View {
             ZStack() {
                 VStack(alignment: .leading, spacing: 7) {
                     List {
-                        ForEach(projectsSelected, id: \.self) { items in
+                        ForEach(projectsSelected.sorted(by: {$0.projectDate ?? "" < $1.projectDate ?? ""}), id: \.self) { items in
                             //  ForEach(coreDataVM.savedEntities.sorted(by: { $0.projectDate ?? "" > $1.projectDate ?? "" }), id: \.self) { items in
                             ForEach(items.equipments, id: \.self) { equipments in
                                 NavigationLink {
-                                    EquipmentCell(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipments)
-                                    //                                ProjectDetailCard(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectLocation: items.location ?? "", projectManager: items.projectManager ?? "", superintendent: items.superintendent ?? "", client: items.client ?? "", projectdetails: items.jobsiteDescription ?? "", projectImage: items.profileImage)
+                            //             EquipmentPDF(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipments)
+                                   EquipmentPDF(equipmententity: equipments, projectentity: items)
+                                    
+                           //         EquipmentCell(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipments)
                                 } label: {
                                     VStack() {
                                         JobsiteCell(projectName: items.projectName ?? "", jobsiteName: equipments.equipmentName ?? "", jobsiteDate: equipments.inspectionDate ?? "", projectImage: items.profileImage!)
-                                        //                                    ProjectCell(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectDate: items.projectDate ?? "", projectLocation: items.location ?? "", categoryColor: "", projectImage: items.profileImage)
                                     }
                                 }
                             }
@@ -69,12 +73,13 @@ struct HeavyEquipListView: View {
                     }
                 }
                 .background(backgroundGradientlight)
+                
             }
             .navigationTitle("Equipment PreProduction")
             .navigationBarTitleDisplayMode(.inline)
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading, content: {
+            ToolbarItem(placement: .navigationBarTrailing, content: {
                 NavigationLink(destination: {
                     InspectionView()
                 }, label: {

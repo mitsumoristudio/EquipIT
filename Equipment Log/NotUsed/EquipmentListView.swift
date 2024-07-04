@@ -16,6 +16,8 @@ struct EquipmentListView: View {
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \EquipmentEntity.equipmentName, ascending: true)]) private var equipments: FetchedResults<EquipmentEntity>
     
+    @State var searchText: String = ""
+    
     func deleteProjectEntity(at offset: IndexSet) {
         for index in offset {
             let projectDelete = projects[index]
@@ -49,12 +51,12 @@ struct EquipmentListView: View {
                     ForEach(projects, id: \.self) { items in
                         ForEach(items.equipments, id: \.self) {equipment in
                             NavigationLink(destination: {
-                                EquipmentCell(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipment)
+                                EquipmentPDF(equipmententity: EquipmentEntity(), projectentity: ProjectEntity())
+//                                EquipmentCell(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipment)
                             }, label: {
                                 VStack(alignment: .leading, spacing: 10) {
                                     JobsiteCell(projectName: items.projectName ?? "", jobsiteName: equipment.equipmentName ?? "", jobsiteDate: equipment.inspectionDate ?? "", projectImage: items.profileImage!)
                                     
-                                    //                                        JobSiteCard(projectName: items.projectName ?? "", projectImage: items.profileImage, jobsiteName: equipment.equipmentName ?? "", jobsiteDate: equipment.inspectionDate ?? "")
                                 }
                             })
                         }
@@ -68,12 +70,16 @@ struct EquipmentListView: View {
                     })
                     
                     
+                    
                     .padding()
                     .navigationTitle("Project Inspection Report")
                     .navigationBarTitleDisplayMode(.inline)
                     //       .navigationBarBackButtonHidden(true)
+                    
+                    .searchable(text:$searchText, prompt: "Search Here")
                     //   }
                     .toolbar {
+                        
                         ToolbarItem(placement: .navigationBarTrailing, content: {
                             NavigationLink(destination: {
                                 InspectionView()
@@ -84,17 +90,7 @@ struct EquipmentListView: View {
                                     .font(.title2)
                             })
                         })
-                        //                    .toolbar {
-                        //                        ToolbarItem(placement: .navigationBarLeading, content: {
-                        //                            NavigationLink(destination: {
-                        //                                dismiss()
-                        //                            }, label: {
-                        //                                Image(systemName: "chevron.backward.circle")
-                        //                                    .foregroundColor(Color.white)
-                        //                                    .background(Color.black, in: Circle())
-                        //                                    .font(.title2)
-                        //                            })
-                        //                        })
+                        
                     }
                 }
             }

@@ -31,7 +31,7 @@ struct ProjectCell: View {
                     .foregroundStyle(Color.black).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
                     .background {
                         Capsule()
-                            .fill(.white.opacity(0.40))
+                            .fill(.secondary.opacity(0.1))
                             .frame(minWidth: 180, minHeight: 36)
                         
                     }

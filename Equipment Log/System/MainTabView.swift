@@ -17,22 +17,22 @@ struct MainTabView: View {
           
                     .tabItem {
                         VStack() {
-                            Image(systemName: "list.bullet.circle")
-                            Text("List")
+                            Image(systemName: "plus.rectangle.on.folder.fill")
+                            Text("Projects")
                         }
                     }
                     .tag(0)
                 
-                ProjectAddView(needtoRefresh: .constant(true))
-               
-                    .tabItem {
-                        VStack() {
-                            Image(systemName: "plus.rectangle.on.folder.fill")
-                            
-                            Text("Add Project")
-                        }
-                    }
-                    .tag(1)
+//                ProjectAddView(needtoRefresh: .constant(true))
+//               
+//                    .tabItem {
+//                        VStack() {
+//                            Image(systemName: "plus.rectangle.on.folder.fill")
+//                            
+//                            Text("Add Project")
+//                        }
+//                    }
+//                    .tag(1)
                 
                 HeavyEquipListView()
                     .tabItem {
@@ -41,7 +41,7 @@ struct MainTabView: View {
                             Text("Equipment")
                         }
                     }
-                    .tag(2)
+                    .tag(1)
                 
                 SetUpView()
                     .tabItem {
@@ -50,7 +50,7 @@ struct MainTabView: View {
                             Text("Settings")
                         }
                     }
-                    .tag(3)
+                    .tag(2)
             }
         }
     }

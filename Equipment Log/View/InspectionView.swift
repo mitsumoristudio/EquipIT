@@ -110,18 +110,19 @@ struct InspectionView: View {
                                 .frame(maxHeight: 1.2)
                             
                             HStack() {
-                                Text("Project")
-                                    .font(.headline)
-                                    .fontWeight(.semibold)
-                                
                                 Picker("Select Project Name", selection: $selectedProjects) {
                                     ForEach(projects, id: \.self) { items in
                                         Text(items.projectName ?? "")
                                         
                                     }
                                 }
-                                .pickerStyle(.menu)
+                                .pickerStyle(.navigationLink)
+                               // .pickerStyle(.menu)
                             }
+                            
+                            Rectangle()
+                                .fill(Color.black.opacity(0.5))
+                                .frame(maxHeight: 1.2)
                             
                             Text("The Periodic Maintenance Checklist as outlined in the Operator's Manual has been completed and any necessary maintenance items have been addressed")
                                 .fontWeight(.medium)
