@@ -42,6 +42,7 @@
 		E4406EE32C709D81005E15D5 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EE22C709D81005E15D5 /* OnboardingCell.swift */; };
 		E4406EE72C71EC32005E15D5 /* BarChartExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EE62C71EC32005E15D5 /* BarChartExample.swift */; };
 		E4406EEB2C743AE6005E15D5 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EEA2C743AE6005E15D5 /* SplashScreenView.swift */; };
+		E4DD13F12C75D34F00AC557C /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DD13F02C75D34F00AC557C /* MessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E4406EE22C709D81005E15D5 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		E4406EE62C71EC32005E15D5 /* BarChartExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartExample.swift; sourceTree = "<group>"; };
 		E4406EEA2C743AE6005E15D5 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		E4DD13F02C75D34F00AC557C /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				E435D55A2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataClass.swift */,
-				E435D55B2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataProperties.swift */,
 				E435D5142C2EA74600B9FC63 /* Equipment Log */,
 				E435D5252C2EA74700B9FC63 /* Equipment LogTests */,
 				E435D52F2C2EA74700B9FC63 /* Equipment LogUITests */,
@@ -207,6 +208,7 @@
 			children = (
 				E41028082C34D30C00FF8E46 /* HeavyEquipListView.swift */,
 				E435D55E2C2EB12C00B9FC63 /* InspectionView.swift */,
+				E4DD13F02C75D34F00AC557C /* MessageView.swift */,
 				E435D5542C2EAC1100B9FC63 /* ProjectAddView.swift */,
 				E435D5562C2EAC7600B9FC63 /* ProjectListView.swift */,
 				E435D5522C2EABD200B9FC63 /* SetupView.swift */,
@@ -220,7 +222,6 @@
 				E4406EE62C71EC32005E15D5 /* BarChartExample.swift */,
 				E4406EDF2C707A6C005E15D5 /* CoreViewModel.swift */,
 				E41028042C32717E00FF8E46 /* EquipmentListView.swift */,
-				E4406EDD2C707970005E15D5 /* IconRotation.swift */,
 				E4406EDB2C703F38005E15D5 /* PDFPrintView.swift */,
 			);
 			path = NotUsed;
@@ -232,6 +233,7 @@
 				E41028022C326CFF00FF8E46 /* EquipmentCell.swift */,
 				E410280A2C34E77400FF8E46 /* EquipmentPDF.swift */,
 				E41028062C33848900FF8E46 /* JobSiteCard.swift */,
+				E4406EDD2C707970005E15D5 /* IconRotation.swift */,
 				E4406EE22C709D81005E15D5 /* OnboardingCell.swift */,
 				E435D5502C2EABA100B9FC63 /* ProjectDetailCard.swift */,
 				E435D54E2C2EAB6800B9FC63 /* ProjectCell.swift */,
@@ -246,6 +248,7 @@
 				E435D5172C2EA74600B9FC63 /* ContentView.swift */,
 				E435D5582C2EACE600B9FC63 /* MainTabView.swift */,
 				E435D54B2C2EAB0700B9FC63 /* PersistenceController.swift */,
+				E435D55B2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataProperties.swift */,
 				E4406EEA2C743AE6005E15D5 /* SplashScreenView.swift */,
 			);
 			path = System;
@@ -406,6 +409,7 @@
 				E435D5592C2EACE600B9FC63 /* MainTabView.swift in Sources */,
 				E41028052C32717E00FF8E46 /* EquipmentListView.swift in Sources */,
 				E435D5442C2EA99700B9FC63 /* VisualEffectBlur.swift in Sources */,
+				E4DD13F12C75D34F00AC557C /* MessageView.swift in Sources */,
 				E410280B2C34E77400FF8E46 /* EquipmentPDF.swift in Sources */,
 				E4406EE32C709D81005E15D5 /* OnboardingCell.swift in Sources */,
 				E410280D2C36177D00FF8E46 /* ShareSheet.swift in Sources */,
@@ -577,11 +581,14 @@
 				DEVELOPMENT_TEAM = P245NB73JW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = EquipIT;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,6 +596,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Equipment-Log";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,11 +617,14 @@
 				DEVELOPMENT_TEAM = P245NB73JW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = EquipIT;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,6 +632,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Equipment-Log";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

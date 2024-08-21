@@ -42,6 +42,7 @@ struct SetUpView: View {
                     
                     NavigationLink(destination: {
                         // MARK: - Add Message View Here
+                        MessageView()
                     }, label: {
                         MenuRow(title: "App Features", leftIcon: "lightbulb.led.fill")
                     })
