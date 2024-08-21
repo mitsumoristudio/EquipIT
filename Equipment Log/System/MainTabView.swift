@@ -23,17 +23,6 @@ struct MainTabView: View {
                     }
                     .tag(0)
                 
-//                ProjectAddView(needtoRefresh: .constant(true))
-//               
-//                    .tabItem {
-//                        VStack() {
-//                            Image(systemName: "plus.rectangle.on.folder.fill")
-//                            
-//                            Text("Add Project")
-//                        }
-//                    }
-//                    .tag(1)
-                
                 HeavyEquipListView()
                     .tabItem {
                         VStack() {

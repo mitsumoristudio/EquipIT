@@ -36,6 +36,12 @@
 		E435D55C2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435D55A2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataClass.swift */; };
 		E435D55D2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435D55B2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataProperties.swift */; };
 		E435D55F2C2EB12C00B9FC63 /* InspectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E435D55E2C2EB12C00B9FC63 /* InspectionView.swift */; };
+		E4406EDC2C703F38005E15D5 /* PDFPrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EDB2C703F38005E15D5 /* PDFPrintView.swift */; };
+		E4406EDE2C707970005E15D5 /* IconRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EDD2C707970005E15D5 /* IconRotation.swift */; };
+		E4406EE02C707A6C005E15D5 /* CoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EDF2C707A6C005E15D5 /* CoreViewModel.swift */; };
+		E4406EE32C709D81005E15D5 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EE22C709D81005E15D5 /* OnboardingCell.swift */; };
+		E4406EE72C71EC32005E15D5 /* BarChartExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EE62C71EC32005E15D5 /* BarChartExample.swift */; };
+		E4406EEB2C743AE6005E15D5 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4406EEA2C743AE6005E15D5 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		E435D55A2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E435D55B2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E435D55E2C2EB12C00B9FC63 /* InspectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionView.swift; sourceTree = "<group>"; };
+		E4406EDB2C703F38005E15D5 /* PDFPrintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPrintView.swift; sourceTree = "<group>"; };
+		E4406EDD2C707970005E15D5 /* IconRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRotation.swift; sourceTree = "<group>"; };
+		E4406EDF2C707A6C005E15D5 /* CoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreViewModel.swift; sourceTree = "<group>"; };
+		E4406EE22C709D81005E15D5 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		E4406EE62C71EC32005E15D5 /* BarChartExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartExample.swift; sourceTree = "<group>"; };
+		E4406EEA2C743AE6005E15D5 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,11 +152,11 @@
 		E435D5142C2EA74600B9FC63 /* Equipment Log */ = {
 			isa = PBXGroup;
 			children = (
-				E435D5152C2EA74600B9FC63 /* Equipment_LogApp.swift */,
-				E435D5172C2EA74600B9FC63 /* ContentView.swift */,
-				E435D54B2C2EAB0700B9FC63 /* PersistenceController.swift */,
-				E435D54D2C2EAB4C00B9FC63 /* View */,
+				E4406EE82C743237005E15D5 /* Components */,
 				E435D5422C2EA97000B9FC63 /* Extension */,
+				E4406EE92C743300005E15D5 /* System */,
+				E435D54D2C2EAB4C00B9FC63 /* View */,
+				E4406EE12C709D2F005E15D5 /* NotUsed */,
 				E435D53F2C2EA7E700B9FC63 /* CoreDataModel.xcdatamodeld */,
 				E41028AD2C3680B000FF8E46 /* PrivacyInfo.xcprivacy */,
 				E435D5192C2EA74700B9FC63 /* Assets.xcassets */,
@@ -181,11 +193,11 @@
 		E435D5422C2EA97000B9FC63 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E435D5432C2EA99700B9FC63 /* VisualEffectBlur.swift */,
-				E435D5452C2EA9A500B9FC63 /* TextFrameModifier.swift */,
 				E435D5472C2EA9AD00B9FC63 /* ImagePicker.swift */,
 				E435D5492C2EA9B500B9FC63 /* MenuRow.swift */,
 				E410280C2C36177D00FF8E46 /* ShareSheet.swift */,
+				E435D5452C2EA9A500B9FC63 /* TextFrameModifier.swift */,
+				E435D5432C2EA99700B9FC63 /* VisualEffectBlur.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -193,20 +205,50 @@
 		E435D54D2C2EAB4C00B9FC63 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E435D54E2C2EAB6800B9FC63 /* ProjectCell.swift */,
-				E435D5502C2EABA100B9FC63 /* ProjectDetailCard.swift */,
-				E41028062C33848900FF8E46 /* JobSiteCard.swift */,
-				E435D5522C2EABD200B9FC63 /* SetupView.swift */,
-				E435D5542C2EAC1100B9FC63 /* ProjectAddView.swift */,
-				E435D55E2C2EB12C00B9FC63 /* InspectionView.swift */,
-				E435D5562C2EAC7600B9FC63 /* ProjectListView.swift */,
 				E41028082C34D30C00FF8E46 /* HeavyEquipListView.swift */,
-				E410280A2C34E77400FF8E46 /* EquipmentPDF.swift */,
-				E41028022C326CFF00FF8E46 /* EquipmentCell.swift */,
-				E41028042C32717E00FF8E46 /* EquipmentListView.swift */,
-				E435D5582C2EACE600B9FC63 /* MainTabView.swift */,
+				E435D55E2C2EB12C00B9FC63 /* InspectionView.swift */,
+				E435D5542C2EAC1100B9FC63 /* ProjectAddView.swift */,
+				E435D5562C2EAC7600B9FC63 /* ProjectListView.swift */,
+				E435D5522C2EABD200B9FC63 /* SetupView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E4406EE12C709D2F005E15D5 /* NotUsed */ = {
+			isa = PBXGroup;
+			children = (
+				E4406EE62C71EC32005E15D5 /* BarChartExample.swift */,
+				E4406EDF2C707A6C005E15D5 /* CoreViewModel.swift */,
+				E41028042C32717E00FF8E46 /* EquipmentListView.swift */,
+				E4406EDD2C707970005E15D5 /* IconRotation.swift */,
+				E4406EDB2C703F38005E15D5 /* PDFPrintView.swift */,
+			);
+			path = NotUsed;
+			sourceTree = "<group>";
+		};
+		E4406EE82C743237005E15D5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E41028022C326CFF00FF8E46 /* EquipmentCell.swift */,
+				E410280A2C34E77400FF8E46 /* EquipmentPDF.swift */,
+				E41028062C33848900FF8E46 /* JobSiteCard.swift */,
+				E4406EE22C709D81005E15D5 /* OnboardingCell.swift */,
+				E435D5502C2EABA100B9FC63 /* ProjectDetailCard.swift */,
+				E435D54E2C2EAB6800B9FC63 /* ProjectCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E4406EE92C743300005E15D5 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E435D5152C2EA74600B9FC63 /* Equipment_LogApp.swift */,
+				E435D5172C2EA74600B9FC63 /* ContentView.swift */,
+				E435D5582C2EACE600B9FC63 /* MainTabView.swift */,
+				E435D54B2C2EAB0700B9FC63 /* PersistenceController.swift */,
+				E4406EEA2C743AE6005E15D5 /* SplashScreenView.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,12 +384,17 @@
 			files = (
 				E435D55F2C2EB12C00B9FC63 /* InspectionView.swift in Sources */,
 				E435D55D2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataProperties.swift in Sources */,
+				E4406EEB2C743AE6005E15D5 /* SplashScreenView.swift in Sources */,
 				E435D5182C2EA74600B9FC63 /* ContentView.swift in Sources */,
+				E4406EE02C707A6C005E15D5 /* CoreViewModel.swift in Sources */,
 				E435D54A2C2EA9B500B9FC63 /* MenuRow.swift in Sources */,
 				E435D5512C2EABA100B9FC63 /* ProjectDetailCard.swift in Sources */,
 				E435D5162C2EA74600B9FC63 /* Equipment_LogApp.swift in Sources */,
 				E41028032C326CFF00FF8E46 /* EquipmentCell.swift in Sources */,
+				E4406EDE2C707970005E15D5 /* IconRotation.swift in Sources */,
+				E4406EDC2C703F38005E15D5 /* PDFPrintView.swift in Sources */,
 				E435D5532C2EABD200B9FC63 /* SetupView.swift in Sources */,
+				E4406EE72C71EC32005E15D5 /* BarChartExample.swift in Sources */,
 				E435D5462C2EA9A500B9FC63 /* TextFrameModifier.swift in Sources */,
 				E435D55C2C2EAF3F00B9FC63 /* ProjectEntity+CoreDataClass.swift in Sources */,
 				E435D5552C2EAC1100B9FC63 /* ProjectAddView.swift in Sources */,
@@ -360,6 +407,7 @@
 				E41028052C32717E00FF8E46 /* EquipmentListView.swift in Sources */,
 				E435D5442C2EA99700B9FC63 /* VisualEffectBlur.swift in Sources */,
 				E410280B2C34E77400FF8E46 /* EquipmentPDF.swift in Sources */,
+				E4406EE32C709D81005E15D5 /* OnboardingCell.swift in Sources */,
 				E410280D2C36177D00FF8E46 /* ShareSheet.swift in Sources */,
 				E41028072C33848900FF8E46 /* JobSiteCard.swift in Sources */,
 				E435D54C2C2EAB0700B9FC63 /* PersistenceController.swift in Sources */,

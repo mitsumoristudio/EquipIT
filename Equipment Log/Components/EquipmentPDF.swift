@@ -84,15 +84,15 @@ struct EquipmentPDF: View {
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing, content: {
-                    Button(action: {
-                        showShareLink.toggle()
-                    }, label: {
-                        Image(systemName: "square.and.arrow.up.circle.fill")
-                            .foregroundColor(Color.black).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
-                            .font(.system(size: 24))
-                    })
-                })
+//                ToolbarItem(placement: .navigationBarTrailing, content: {
+//                    Button(action: {
+//                        showShareLink.toggle()
+//                    }, label: {
+//                        Image(systemName: "square.and.arrow.up.circle.fill")
+//                            .foregroundColor(Color.black).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+//                            .font(.system(size: 24))
+//                    })
+//                })
                 
             }
         }

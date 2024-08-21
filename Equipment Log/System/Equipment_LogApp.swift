@@ -13,7 +13,8 @@ struct Equipment_LogApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+        //    ContentView()
+            SplashScreenView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

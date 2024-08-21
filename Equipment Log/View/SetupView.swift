@@ -10,19 +10,30 @@ import SwiftUI
 
 struct SetUpView: View {
     @State private var showingContactAlert: Bool = false
+    @State var showMessage: Bool = false
+    
+    func titleFormat(title: String) -> some View {
+        Text(title)
+            .font(.title)
+            .fontWeight(.bold)
+            .padding()
+    }
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 5) {
-                List {
+            ZStack() {
+                VStack(alignment: .leading, spacing: 10) {
+                    
+                    titleFormat(title: "Details")
+                    
                     Link(destination: URL(string: "https://mitsumoristudios.com/main#page-11")!, label: {
                         MenuRow(title: "Private Policy", leftIcon: "person.line.dotted.person.fill")
-                    
-                        Link(destination: URL(string: "https://mitsumoristudios.com/main#page-15")!, label: {
-                            MenuRow(title: "Terms & Conditions", leftIcon: "books.vertical.circle")
-                            
-                        })
                     })
+                    
+                    Link(destination: URL(string: "https://mitsumoristudios.com/main#page-15")!, label: {
+                        MenuRow(title: "Terms & Conditions", leftIcon: "books.vertical.circle")
+                    })
+                    
                     Button(action: {
                         showingContactAlert.toggle()
                     }, label: {
@@ -30,25 +41,27 @@ struct SetUpView: View {
                     })
                     
                     NavigationLink(destination: {
-                      // MARK: - Add Message View Here
+                        // MARK: - Add Message View Here
                     }, label: {
                         MenuRow(title: "App Features", leftIcon: "lightbulb.led.fill")
                     })
                 }
             }
-            .alert("Contact Information", isPresented: $showingContactAlert) {
-                
-            } message: {
-                Text("Please email at satoshi@mitsumoristudios.com")
-            }
-            .frame(maxWidth: .infinity, maxHeight: 400, alignment: .leading)
-            .modifier(darktabViewModifier())
-
+            .multilineTextAlignment(.center)
+            .padding(.horizontal, 30)
+            .padding(.vertical, 40)
+            .background(VisualEffectBlur(blurStyle: .systemUltraThinMaterialLight))
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            .shadow(color: Color.black, radius: 10, x: 5, y: 5)
+            .padding()
             
         }
-        .navigationTitle("Setup")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
+        .alert("Contact Information", isPresented: $showingContactAlert) {
+            
+        } message: {
+            Text("Please email at satoshi@mitsumoristudios.com")
+        }
+    
     }
 }
 

@@ -25,6 +25,7 @@ struct ProjectAddView: View {
     @Binding var needtoRefresh: Bool
     @State var showImagePicker = false
     
+    
     @Environment(\.managedObjectContext) private var viewContext
 //  @EnvironmentObject var coreDataViewModel: ProjectViewModel
   //  @State var projectEntities: ProjectEntity
@@ -76,8 +77,8 @@ struct ProjectAddView: View {
                         
                         titleView("Date") // MARK: Project Date Created
                         
-                        HStack(alignment: .bottom, spacing: 12) {
-                            HStack(spacing: 12) {
+                        HStack(spacing: 12) {
+                            HStack(spacing: 10) {
                                 Text(dateSelect.toString("EEEE dd, MMMM"))
                                     .font(.subheadline)
                                 
@@ -158,7 +159,8 @@ struct ProjectAddView: View {
                                 
                                 HStack(spacing: 5) {
                                     TextEditor(text: $jobsitedescription)
-                                        .frame(minWidth: 320, minHeight: 80, alignment: .center)
+                                        .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
+                                  //      .frame(width: 370, height: 80, alignment: .center)
                                         .cornerRadius(10)
                                         .padding(.vertical, 2)
 
@@ -167,7 +169,7 @@ struct ProjectAddView: View {
                             }
                             .padding(.vertical, 5)
                             
-                            VStack(spacing: 5) {
+                            VStack(spacing: 0) {
                                 Button(action: {
                                     
                                     saveProjectEntity()
@@ -188,19 +190,25 @@ struct ProjectAddView: View {
                                         .fontWeight(.semibold)
                                         .font(.title3)
                                         .padding()
-                                        .frame(minWidth: 200, minHeight: 56)
+                                    
+                                        .frame(maxWidth: 1000, maxHeight: 60, alignment: .center)
+                                   
                                         .foregroundStyle(.white)
-                                       // .background(Color(#colorLiteral(red: 0.1923083849, green: 0.6083164035, blue: 0.2002578062, alpha: 1)))
+                                     
                                         .background(Color(#colorLiteral(red: 0.08988218558, green: 0.4913719465, blue: 0.5871633619, alpha: 0.7386692881)))
                                         .clipShape(RoundedRectangle(cornerRadius: 16))
                                         .shadow(radius: 20)
+                                        
+                                        .offset(x: -10, y:0)
                                 })
-                                .offset(y: -20)
                                 
-                                .frame(minWidth: 60, minHeight: 50, alignment: .center)
-                                .padding(.horizontal, 140)
+                                
+                            //    .frame(minWidth: 60, minHeight: 50, alignment: .center)
+                            //    .padding(.horizontal, 140)
                             }
                             .padding()
+
+                            Spacer()
                         }
                     }
                     // MARK: - frame height assigned with CGFloat
@@ -211,6 +219,21 @@ struct ProjectAddView: View {
                         ImagePicker(image: $selectedImage)
                     })
                 }
+            }
+          
+            
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.backward.circle")
+                            .foregroundColor(Color.white)
+                            .background(Color.black, in: Circle())
+                            .font(.title)
+                    })
+                })
             }
         }
     }
@@ -224,38 +247,6 @@ struct ProjectAddView_Preview: PreviewProvider {
 }
 
 extension ProjectAddView {
-    // MARK: Color Picker Selection
-//    @ViewBuilder
-//    var colorPalleteSelection: some View {
-//
-//        let selectionColors: [String] = ["lightBlue", "lightGreen", "lightOrange", "lightPurple", "lightRed", "lightYellow", "lightBlack"]
-//
-//        VStack(alignment: .leading, spacing: 5) {
-//            HStack(spacing: 8) {
-//                ForEach(selectionColors, id: \.self) { colors in
-//                    Circle()
-//                        .fill(Color(colors))
-//                    // .frame(minWidth: 40, minHeight: 40)
-//                        .frame(width: 36, height: 36, alignment: .center)
-//                        .background {
-//                            if coreDataViewModel.categoryColor == colors {
-//                                Circle()
-//                                    .strokeBorder(Color.blue)
-//                                    .padding(-5)
-//                                    .fontWeight(.semibold)
-//                            }
-//                        }
-//                        .contentShape(Circle())
-//
-//                    // MARK: Add onTapGesture to interact with Color
-//                        .onTapGesture {
-//                            coreDataViewModel.categoryColor = colors
-//                        }
-//                }
-//            }
-//            .offset(x:-6)
-//        }
-//    }
     
     @ViewBuilder
     var showImagePickerPhoto : some View {
@@ -276,7 +267,7 @@ extension ProjectAddView {
                     Image(uiImage: selectedImage ?? UIImage())
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(minWidth: 30, minHeight: 30, alignment: .center)
+                        .frame(width: 30, height: 30, alignment: .center)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal, 10)
                 }

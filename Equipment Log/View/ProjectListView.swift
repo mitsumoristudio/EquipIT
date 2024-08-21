@@ -61,7 +61,7 @@ struct ProjectListView : View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing, content: {
                         NavigationLink(destination: {
-                            InspectionView()
+                            ProjectAddView(needtoRefresh: .constant(true))
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(Color.white)

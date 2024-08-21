@@ -26,8 +26,6 @@ struct PersistenceController {
          // Projects
           let newProjects = ProjectEntity(context: viewContext)
           newProjects.projectName = "Amazon"
-        //  let newCompany = Department(context: viewContext)
-      //    newCompany.name = "Apple"
           
           shared.saveEntities()
           

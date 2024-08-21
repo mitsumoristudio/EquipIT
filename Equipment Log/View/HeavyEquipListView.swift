@@ -56,10 +56,11 @@ struct HeavyEquipListView: View {
                             //  ForEach(coreDataVM.savedEntities.sorted(by: { $0.projectDate ?? "" > $1.projectDate ?? "" }), id: \.self) { items in
                             ForEach(items.equipments, id: \.self) { equipments in
                                 NavigationLink {
-                            //             EquipmentPDF(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipments)
-                                   EquipmentPDF(equipmententity: equipments, projectentity: items)
+                                            
                                     
-                           //         EquipmentCell(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipments)
+                                    EquipmentPDF(equipmententity: equipments, projectentity: items)
+                                    
+                                    //         EquipmentCell(projectName: items.projectName ?? "", projectLocation: items.location ?? "", projectClient: items.client ?? "", equipments: equipments)
                                 } label: {
                                     VStack() {
                                         JobsiteCell(projectName: items.projectName ?? "", jobsiteName: equipments.equipmentName ?? "", jobsiteDate: equipments.inspectionDate ?? "", projectImage: items.profileImage!)
@@ -77,18 +78,25 @@ struct HeavyEquipListView: View {
             }
             .navigationTitle("Equipment PreProduction")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing, content: {
-                NavigationLink(destination: {
-                    InspectionView()
-                }, label: {
-                    Image(systemName: "document.circle")
-                        .foregroundColor(Color.blue)
-                        .background(Color.black, in: Circle())
-                        .font(.title2)
+            
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading, content: {
+                   IconRotation()
+                    })
+                
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    NavigationLink(destination: {
+                        InspectionView()
+                    }, label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(Color.white)
+                            .background(Color.black, in: Circle())
+                            .font(.title2)
+                    })
                 })
-            })
+                
+            }
         }
+//      
     }
 }

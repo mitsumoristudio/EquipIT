@@ -236,10 +236,12 @@ extension InspectionView {
             .font(.title3)
             .fontWeight(.semibold)
             .foregroundStyle(Color.white)
-            .frame(width: 160, height: 46)
+            .frame(maxWidth: 1000, maxHeight: 56, alignment: .center)
+        //    .frame(width: 160, height: 46)
             .background(.indigo)
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .padding(.vertical, 6)
+            .padding(.vertical, 30)
+            .offset(x: -80, y: 0)
     }
     
     private func titleView(_ value: String, color: Color = .black.opacity(0.9)) -> some View {

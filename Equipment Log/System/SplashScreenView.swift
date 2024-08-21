@@ -15,14 +15,11 @@ struct SplashScreenView: View {
     @State private var isAnimating: Bool = false
     
     var body: some View {
-        VStack() {
+        if isActive {
+            ContentView()
+        } else {
             splashMain()
         }
-//        if isActive {
-//            ContentView()
-//        } else {
-//            splashMain()
-//        }
 
     }
 }
@@ -52,7 +49,7 @@ extension SplashScreenView {
                     .foregroundStyle(Color.gray).opacity(0.8)
                     .shadow(radius: 6)
                 
-                Text("EquipVille")
+                Text("EquipIT")
                     .fontWeight(.semibold)
                     .font(.system(size: 38, design: .rounded))
                     .font(isAnimating ? .largeTitle : .body)
