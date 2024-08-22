@@ -164,7 +164,7 @@ struct ProjectAddView: View {
                                     
                                     HStack(spacing: 5) {
                                         TextEditor(text: $jobsitedescription)
-                                            .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
+                                            .frame(maxWidth: .infinity, maxHeight: 140, alignment: .center)
                                         //      .frame(width: 370, height: 80, alignment: .center)
                                             .cornerRadius(10)
                                             .padding(.vertical, 2)

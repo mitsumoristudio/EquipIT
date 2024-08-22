@@ -77,7 +77,7 @@ struct JobsiteCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             
-            HStack(alignment: .center, spacing: 36) {
+            HStack(alignment: .center, spacing: 16) {
                 Text(projectName)
                     .font(.headline)
                     .fontWeight(.medium)
@@ -85,10 +85,10 @@ struct JobsiteCell: View {
                     .lineLimit(2)
                     .background {
                         Capsule()
-                            .fill(.white.opacity(0.40))
-                            .frame(minWidth: .infinity, minHeight: 36)
-                        
+                            .fill(.white.opacity(0.30))
+                          //  .frame(minWidth: .infinity, minHeight: 36)
                     }
+                    .frame(minWidth: 100, minHeight: 60)
                     .padding(.horizontal, 10)
                 
                 if projectImage != nil {

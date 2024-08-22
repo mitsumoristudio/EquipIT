@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct SetUpView: View {
+    
     @State private var showingContactAlert: Bool = false
     @State var showMessage: Bool = false
     
@@ -26,11 +27,11 @@ struct SetUpView: View {
                     
                     titleFormat(title: "Details")
                     
-                    Link(destination: URL(string: "https://mitsumoristudios.com/main#page-11")!, label: {
+                    Link(destination: URL(string: "https://mitsumoristudios.com/main#page-6")!, label: {
                         MenuRow(title: "Private Policy", leftIcon: "person.line.dotted.person.fill")
                     })
                     
-                    Link(destination: URL(string: "https://mitsumoristudios.com/main#page-15")!, label: {
+                    Link(destination: URL(string: "https://mitsumoristudios.com/main#page-7")!, label: {
                         MenuRow(title: "Terms & Conditions", leftIcon: "books.vertical.circle")
                     })
                     
