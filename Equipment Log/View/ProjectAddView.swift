@@ -27,8 +27,6 @@ struct ProjectAddView: View {
     
     
     @Environment(\.managedObjectContext) private var viewContext
-//  @EnvironmentObject var coreDataViewModel: ProjectViewModel
-  //  @State var projectEntities: ProjectEntity
     
     @State private var selectedImage: UIImage?
     
@@ -65,6 +63,7 @@ struct ProjectAddView: View {
                             .frame(height: 1)
                         
                         titleView("Project Number")
+                        
                         TextField("Enter Project Number", text: $projectNumber)
                             .font(.headline)
                             .padding(.top, 2)
@@ -89,7 +88,9 @@ struct ProjectAddView: View {
                                         DatePicker("", selection: $dateSelect, displayedComponents: [.date])
                                             .blendMode(.destinationOver)
                                     }
+                                
                                 showImagePickerPhoto
+                                // MARK: Shows the image picker and used to select photos
                             }
                             .offset(y: -5)
                             .overlay(alignment: .bottom) {
@@ -102,123 +103,131 @@ struct ProjectAddView: View {
                         .padding(.vertical, 10)
                         
                         VStack(alignment: .leading, spacing: 10) {
-                            
-                            titleView("Project Manager")
-                            TextField("Enter Project Manager", text: $projectManager)
-                                .font(.headline)
-                                .padding(.top, 2)
-                                .foregroundColor(Color.white)
-                                .modifier(TextFieldClearButton(nextText: $projectManager))
-                            
-                            Rectangle()
-                                .fill(.white.opacity(0.8))
-                                .frame(height: 1)
-                            
-                            VStack(alignment: .leading, spacing: 10) {
+                            Group {
+                                titleView("Project Manager")
                                 
-                                titleView("Superintendent")
-                                TextField("Enter Superintendent", text: $superintendent)
+                                TextField("Enter Project Manager", text: $projectManager)
                                     .font(.headline)
                                     .padding(.top, 2)
                                     .foregroundColor(Color.white)
-                                    .modifier(TextFieldClearButton(nextText: $superintendent))
+                                    .modifier(TextFieldClearButton(nextText: $projectManager))
                                 
                                 Rectangle()
                                     .fill(.white.opacity(0.8))
                                     .frame(height: 1)
                                 
-                                titleView("Location")
-                                TextField("City, State", text: $projectLocation)
-                                    .font(.headline)
-                                    .padding(.top, 2)
-                                    .foregroundColor(Color.white)
-                                    .modifier(TextFieldClearButton(nextText: $projectLocation))
-                                
-                                Rectangle()
-                                    .fill(.white.opacity(0.8))
-                                    .frame(height: 1)
-                                
-                                titleView("Client")
-                                TextField("Enter Client", text: $client)
-                                    .font(.headline)
-                                    .padding(.top, 2)
-                                    .foregroundColor(Color.white)
-                                    .modifier(TextFieldClearButton(nextText: $client))
-                                
-                                Rectangle()
-                                    .fill(.white.opacity(0.8))
-                                    .frame(height: 1)
-                            }
-                            
-                            VStack(alignment: .leading, spacing: 10) {
-                                
-                                Text("Details of Jobsite")
-                                    .font(.headline)
-                                    .padding(.top, 2)
-                                    .foregroundColor(Color.white).opacity(0.8)
-                                
-                                HStack(spacing: 5) {
-                                    TextEditor(text: $jobsitedescription)
-                                        .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
-                                  //      .frame(width: 370, height: 80, alignment: .center)
-                                        .cornerRadius(10)
-                                        .padding(.vertical, 2)
-
+                                VStack(alignment: .leading, spacing: 10) {
+                                    
+                                    titleView("Superintendent")
+                                    
+                                    TextField("Enter Superintendent", text: $superintendent)
+                                        .font(.headline)
+                                        .padding(.top, 2)
+                                        .foregroundColor(Color.white)
+                                        .modifier(TextFieldClearButton(nextText: $superintendent))
+                                    
+                                    Rectangle()
+                                        .fill(.white.opacity(0.8))
+                                        .frame(height: 1)
+                                    
+                                    titleView("Location")
+                                    
+                                    TextField("City, State", text: $projectLocation)
+                                        .font(.headline)
+                                        .padding(.top, 2)
+                                        .foregroundColor(Color.white)
+                                        .modifier(TextFieldClearButton(nextText: $projectLocation))
+                                    
+                                    Rectangle()
+                                        .fill(.white.opacity(0.8))
+                                        .frame(height: 1)
+                                    
+                                    titleView("Client")
+                                    
+                                    TextField("Enter Client", text: $client)
+                                        .font(.headline)
+                                        .padding(.top, 2)
+                                        .foregroundColor(Color.white)
+                                        .modifier(TextFieldClearButton(nextText: $client))
+                                    
+                                    Rectangle()
+                                        .fill(.white.opacity(0.8))
+                                        .frame(height: 1)
                                 }
-                                .offset(x:-6)
-                            }
-                            .padding(.vertical, 5)
-                            
-                            VStack(spacing: 0) {
-                                Button(action: {
+                                
+                                VStack(alignment: .leading, spacing: 10) {
                                     
-                                    saveProjectEntity()
-                                    // MARK: add persistentContainer to save file
-                                    // MARK: Use DateFormatter to convert Date to a string
-                                    // MARK: Add some function here
+                                    Text("Details of Jobsite")
+                                        .font(.headline)
+                                        .padding(.top, 2)
+                                        .foregroundColor(Color.white).opacity(0.8)
                                     
-                                    superintendent = ""
-                                    projectNumber = ""
-                                    projectName = ""
-                                    projectManager = ""
-                                    projectLocation = ""
-                                    jobsitedescription = ""
-                                    client = ""
-                                    
-                                }, label: {
-                                    Text("Save")
-                                        .fontWeight(.semibold)
-                                        .font(.title3)
-                                        .padding()
-                                    
-                                        .frame(maxWidth: 1000, maxHeight: 60, alignment: .center)
-                                   
-                                        .foregroundStyle(.white)
-                                     
-                                        .background(Color(#colorLiteral(red: 0.08988218558, green: 0.4913719465, blue: 0.5871633619, alpha: 0.7386692881)))
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                                        .shadow(radius: 20)
+                                    HStack(spacing: 5) {
+                                        TextEditor(text: $jobsitedescription)
+                                            .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
+                                        //      .frame(width: 370, height: 80, alignment: .center)
+                                            .cornerRadius(10)
+                                            .padding(.vertical, 2)
                                         
-                                        .offset(x: -10, y:0)
-                                })
+                                    }
+                                    .offset(x:-6)
+                                }
+                                .padding(.vertical, 5)
                                 
+                                VStack(spacing: 0) {
+                                    Button(action: {
+                                        
+                                        saveProjectEntity()
+                                        // MARK: add persistentContainer to save file
+                                        // MARK: Use DateFormatter to convert Date to a string
+                                        // MARK: Add some function here and return empty string
+                                        
+                                        superintendent = ""
+                                        projectNumber = ""
+                                        projectName = ""
+                                        projectManager = ""
+                                        projectLocation = ""
+                                        jobsitedescription = ""
+                                        client = ""
+                                        
+                                    }, label: {
+                                        Text("Save")
+                                            .fontWeight(.semibold)
+                                            .font(.title3)
+                                            .padding()
+                                        
+                                            .frame(maxWidth: 1000, maxHeight: 60, alignment: .center)
+                                        
+                                            .foregroundStyle(.white)
+                                        
+                                            .background(Color(#colorLiteral(red: 0.08988218558, green: 0.4913719465, blue: 0.5871633619, alpha: 0.7386692881)))
+                                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                                            .shadow(radius: 20)
+                                        
+                                            .offset(x: -10, y:0)
+                                    })
+                                    
+                                    
+                                    //    .frame(minWidth: 60, minHeight: 50, alignment: .center)
+                                    //    .padding(.horizontal, 140)
+                                }
+                                .padding()
                                 
-                            //    .frame(minWidth: 60, minHeight: 50, alignment: .center)
-                            //    .padding(.horizontal, 140)
+                                Spacer()
                             }
-                            .padding()
-
-                            Spacer()
                         }
                     }
                     // MARK: - frame height assigned with CGFloat
                     .frame(height: getScreenReact().height/1.10, alignment: .leading)
                     .padding([.leading, .vertical])
                     
+                    // MARK: use fullscreen to display Image picker
                     .fullScreenCover(isPresented: $showImagePicker, content: {
                         ImagePicker(image: $selectedImage)
                     })
                 }
+                .scrollDismissesKeyboard(.immediately)
+                // dismiss the keyboard as soon as Scrolling starts
             }
           
             
@@ -281,6 +290,7 @@ extension ProjectAddView {
     }
 }
 
+// MARK: Extension function to save entities in CoreData
 extension ProjectAddView {
     func saveProjectEntity() {
         let timeNow = DateFormatter()

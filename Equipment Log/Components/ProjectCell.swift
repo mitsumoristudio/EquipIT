@@ -39,12 +39,15 @@ struct ProjectCell: View {
                 
                 if projectImage != nil {
                     Image(uiImage: UIImage(data: projectImage!)!)
+                    // ProjectImage is stored as Binary data. Must pass in data UI Image to upload
+                    
                         .resizable()
                         .scaledToFit()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
                         .frame(width: 46, height: 46)
                 } else {
+                    // if the image is nil, return App logo
                     Image("DailyReportLogo")
                         .resizable()
                         .scaledToFit()
@@ -93,5 +96,6 @@ struct ProjectCell: View {
                 .shadow(radius: 12, x: 5, y: 5)
             
         }
+        // MARK: Sets the background for Card
     }
 }

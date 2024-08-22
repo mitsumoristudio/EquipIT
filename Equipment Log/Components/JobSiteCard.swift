@@ -25,14 +25,16 @@ struct JobSiteCard: View {
                                 .font(.headline)
                                 .foregroundColor(Color.white)
                                 .shadow(color: .black, radius: 10, x: 0, y: 10)
-                                .frame(maxWidth: 140)
+                                .frame(maxWidth: 160)
+                                .lineLimit(2)
                                 .padding()
                             
                             Text(jobsiteName)
                                 .font(.subheadline)
                                 .foregroundColor(Color.white)
                                 .shadow(color: .black, radius: 10, x: 0, y: 10)
-                                .frame(maxWidth: 140)
+                                .frame(maxWidth: 160)
+                                .lineLimit(2)
                             
                             Text("Date: \(jobsiteDate)")
                                 .font(.subheadline)
@@ -49,6 +51,8 @@ struct JobSiteCard: View {
                     .shadow(color: Color.black.opacity(0.3), radius: 15, x: 0, y: 0)
                 
             } else {
+                // MARK: Sets the image as App logo if the image was not uploaded when creating a new Project
+                
                 Image("DailyReportLogo")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -78,6 +82,7 @@ struct JobsiteCell: View {
                     .font(.headline)
                     .fontWeight(.medium)
                     .foregroundStyle(Color.black).opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                    .lineLimit(2)
                     .background {
                         Capsule()
                             .fill(.white.opacity(0.40))

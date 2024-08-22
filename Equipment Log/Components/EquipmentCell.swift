@@ -67,6 +67,8 @@ struct EquipmentCell: View {
                                 .foregroundStyle(Color.black)
                                 .font(.subheadline)
                             
+                            // passed from @ObservedObject from entities in CoreData
+                            
                         } label: {
                             Text("Equipment: ")
                                 .fontWeight(.semibold)

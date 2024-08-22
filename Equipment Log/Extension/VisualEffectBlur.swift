@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 import UIKit
 
+// MARK: Visual Effect extension modifier for background color 
+
 struct VisualEffectBlur<Content: View>: View {
     var blurStyle: UIBlurEffect.Style
     var vibrancyStyle: UIVibrancyEffectStyle?

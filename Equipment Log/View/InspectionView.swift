@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct InspectionView: View {
+    // MARK: Create Equipment Inspection
     
     var backgroundGradient = Color(#colorLiteral(red: 0.7869432202, green: 0.8728674827, blue: 0.8820440269, alpha: 0.6454884106))
     @State var dateSelect: Date = Date()
     @State var showAlertIcon: Bool = false
     @State var isCompleted: Bool = false
     @State var equipmentName: String = ""
+    @FocusState private var focusedTextField: Bool
     
+    // MARK: Array for choosing through the segmented Picker
     var yesNoArray: Array = ["N/A", "YES", "NO"]
     var safeArray: Array = ["N/A", "Safe", "At Risk"]
     
@@ -50,19 +53,25 @@ struct InspectionView: View {
     @State var natransmissionOil: String = "N/A"
     @State var naengineCoolant: String = "N/A"
     @State var naDef: String = "N/A"
+    
     var arrayProjects = ["Project Pearl", "Amazon", "Bojangles"]
-  //  @State var selectedProjects = ProjectEntity()
+
     @State var selectedProjects = ProjectEntity()
+    // Sets the state to use dropdown list from entities
     
     @Environment(\.dismiss) var dismiss
+    
     @Environment(\.managedObjectContext) var viewContent
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ProjectEntity.projectName, ascending: true)]) private var projects: FetchedResults<ProjectEntity>
+    // MARK: Used fetchRequest to create drop down list to save the specific project associated with equipment
     
     var body: some View {
         NavigationStack {
+            
             ZStack() {
                 VStack(alignment: .leading, spacing: 10) {
+                    
                     VStack(alignment: .leading, spacing: 5) {
                         // MARK: Date Picker
                         HStack(alignment: .bottom, spacing: 10) {
@@ -102,7 +111,10 @@ struct InspectionView: View {
                                     .fontWeight(.medium)
                                     .padding(.top, 2)
                                     .modifier(TextFieldClearButton(nextText: $equipmentName))
-                                
+                                    .focused($focusedTextField)
+                                    .onSubmit {
+                                        focusedTextField.toggle()
+                                    }
                             }
                             
                             Rectangle()
@@ -133,13 +145,20 @@ struct InspectionView: View {
                         
                         Group {
                             // MARK: Add Equipment Daily Inspection Here
+                            // PreEquipment Checklist UI embedded here
+            
                             preEquipmentCheckList()
                         }
                         
+                    // MARK:
                         Button(action: {
+                            
+                            // MARK: function to save Entities to Core Data
                             addEquipmentsToProjects()
+                            
                             dismiss()
                         }, label: {
+                            
                             buttonLabel(placeholder: "Save")
                         })
                         .frame(minWidth: 220, minHeight: 60)
@@ -175,6 +194,7 @@ struct InspectionView_Preview: PreviewProvider {
 }
 
 extension InspectionView {
+    // MARK: Function to add entties to coreData
     
     func addEquipmentsToProjects() {
         let timeNow = DateFormatter()
@@ -182,6 +202,7 @@ extension InspectionView {
         timeNow.timeStyle = .none
         let laterTimeNow = timeNow
         let dateOnlyFormat = laterTimeNow.string(from: dateSelect)
+        // MARK: Sets the date to string
         
         
         let newEquipment = EquipmentEntity(context: viewContent)
@@ -231,6 +252,8 @@ extension InspectionView {
         }
     }
     
+    // MARK: ButtonLabel custom func
+    
     private func buttonLabel(placeholder: String) -> some View {
         Text(placeholder)
             .font(.title3)
@@ -252,6 +275,7 @@ extension InspectionView {
     }
 }
 
+// MARK: Equipment Maintenance list UI
 extension InspectionView {
     @ViewBuilder
     func preEquipmentCheckList() -> some View {

@@ -83,7 +83,7 @@ struct EquipmentPDF: View {
                             .font(.system(size: 24))
                     }
                 }
-                
+                // MARK: PDF not used 
 //                ToolbarItem(placement: .navigationBarTrailing, content: {
 //                    Button(action: {
 //                        showShareLink.toggle()

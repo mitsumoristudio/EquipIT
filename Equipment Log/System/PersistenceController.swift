@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 struct PersistenceController {
+    // MARK: Handles all the business logic, management if Credata
     
       let container: NSPersistentContainer
       
@@ -32,6 +33,8 @@ struct PersistenceController {
           return result
       }()
       
+    // MARK: Must be the same name of CoreDataModel name created for NSPersistentContainer !
+    
       init(inMemory: Bool = false) {
           container = NSPersistentContainer(name: "CoreDataModel") // else UnsafeRawBufferPointer with negative count
           if inMemory {

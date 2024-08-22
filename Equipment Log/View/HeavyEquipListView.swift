@@ -12,12 +12,14 @@ struct HeavyEquipListView: View {
     @Environment(\.managedObjectContext) var viewContext
     var backgroundGradientlight =  Color(#colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 0.7262779387))
     
+    
+    // MARK: Used for fetching data from CoreData for the entities created under CoreViewModel
+    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ProjectEntity.projectName, ascending: true)]) private var projectsSelected: FetchedResults<ProjectEntity>
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \EquipmentEntity.equipmentName, ascending: true)]) private var equipments: FetchedResults<EquipmentEntity>
     
-    @State var showShareLink: Bool = false
-    
+    // MARK: DELETE project from entity
     
     func deleteProjectEntity(at offset: IndexSet) {
         for index in offset {
@@ -33,6 +35,7 @@ struct HeavyEquipListView: View {
         }
     }
     
+    // MARK: DELETE equipment from entity
     func deleteEquipmentEntity(at offset: IndexSet) {
         for index in offset {
             let equipmentDelete = equipments[index]
@@ -50,8 +53,10 @@ struct HeavyEquipListView: View {
     var body: some View {
         NavigationStack {
             ZStack() {
-                VStack(alignment: .leading, spacing: 7) {
+                VStack(alignment: .leading, spacing: 8) {
                     List {
+                        // MARK: Sorts the projects based on established date and navigates to equipmentCell
+                        
                         ForEach(projectsSelected.sorted(by: {$0.projectDate ?? "" < $1.projectDate ?? ""}), id: \.self) { items in
                             //  ForEach(coreDataVM.savedEntities.sorted(by: { $0.projectDate ?? "" > $1.projectDate ?? "" }), id: \.self) { items in
                             ForEach(items.equipments, id: \.self) { equipments in
@@ -70,6 +75,7 @@ struct HeavyEquipListView: View {
                         }
                         .onDelete(perform: { indexSet in
                             deleteEquipmentEntity(at: indexSet)
+                            // MARK: Deletes the project based on from indexSet
                         })
                     }
                 }
@@ -100,3 +106,4 @@ struct HeavyEquipListView: View {
 //      
     }
 }
+

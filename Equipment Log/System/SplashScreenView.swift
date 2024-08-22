@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// MARK: Opening Screen Animation in SplashView
+
 struct SplashScreenView: View {
     @State private var isActive: Bool = false
     @State private var size: CGFloat = 0.8

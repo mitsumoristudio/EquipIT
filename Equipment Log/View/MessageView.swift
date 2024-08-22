@@ -12,6 +12,7 @@ struct MessageView: View {
     @State var timerset: Double = 0.0
     @State var showMessage: Bool = true
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @Environment(\.dismiss) var dismiss
     
     func titleFormat(title: String) -> some View {
         Text(title)
@@ -43,6 +44,23 @@ struct MessageView: View {
         .opacity(showMessage ? 1: 0)
         .offset(y: showMessage ? 0: 220)
         .blur(radius: showMessage ? 0: 20)
+        
+        .navigationBarBackButtonHidden(true)
+        
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image(systemName: "chevron.backward.circle")
+                        .foregroundColor(Color.white)
+                        .background(Color.black, in: Circle())
+                        .font(.title)
+                })
+            })
+        }
+        
+        
     }
 }
 
